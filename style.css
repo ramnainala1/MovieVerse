@@ -1,0 +1,657 @@
+/* ==========================================================================
+   RESET & SYSTEM VARIABLES (Premium Aesthetic: Deep Slate & Glowing Cyber Blue)
+   ========================================================================== */
+:root {
+    --bg-dark: #080b10;
+    --bg-surface: rgba(18, 24, 38, 0.65);
+    --bg-surface-solid: #111723;
+    --accent-glow: #00f0ff;
+    --accent-glow-rgb: 0, 240, 255;
+    --accent-blue-deep: #0072ff;
+    --text-main: #f3f4f6;
+    --text-muted: #8a99ad;
+    --border-glass: rgba(255, 255, 255, 0.04);
+    --border-glass-hover: rgba(0, 240, 255, 0.2);
+    --font-heading: 'Clash Display', sans-serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+    --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+}
+
+body {
+    min-height: 100vh;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+    background: #1f293d;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-glow);
+}
+
+/* ==========================================================================
+   TYPOGRAPHY & GLOBAL LAYOUT
+   ========================================================================== */
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 4rem;
+}
+
+.section {
+    padding: 6rem 0;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    position: relative;
+}
+
+/* ==========================================================================
+   BUTTONS & INTERACTION
+   ========================================================================== */
+.btn {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 1rem 2rem;
+    border-radius: 100px;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent-glow), var(--accent-blue-deep));
+    color: #000;
+    box-shadow: 0 0 30px rgba(var(--accent-glow-rgb), 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 40px rgba(var(--accent-glow-rgb), 0.55);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-main);
+    border: 1px solid var(--border-glass);
+    backdrop-filter: blur(12px);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--accent-glow);
+    color: #fff;
+    box-shadow: 0 0 20px rgba(var(--accent-glow-rgb), 0.15);
+}
+
+.btn-sm {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   HEADER / NAVBAR
+   ========================================================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(8, 11, 16, 0.75);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-glass);
+}
+
+.nav-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 1.25rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: -0.02em;
+}
+
+.logo span {
+    color: var(--accent-glow);
+    text-shadow: 0 0 15px rgba(var(--accent-glow-rgb), 0.5);
+}
+
+.nav-links {
+    display: flex;
+    gap: 3rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: var(--transition-smooth);
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--accent-glow);
+    text-shadow: 0 0 10px rgba(var(--accent-glow-rgb), 0.3);
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0 4rem;
+    overflow: hidden;
+}
+
+.hero-bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 80% 20%, rgba(var(--accent-glow-rgb), 0.08), transparent 45%),
+        radial-gradient(circle at 15% 80%, rgba(0, 114, 255, 0.12), transparent 50%),
+        linear-gradient(to bottom, rgba(8, 11, 16, 0.3), var(--bg-dark)),
+        url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    transform: scale(1.05);
+}
+
+.hero-content {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    z-index: 2;
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 5.5rem;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    margin-bottom: 2rem;
+    background: linear-gradient(to bottom, #ffffff 60%, #a5b4fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+    font-size: 1.35rem;
+    color: var(--text-muted);
+    margin-bottom: 3.5rem;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+/* ==========================================================================
+   MOVIE CARDS & CAROUSELS (Horizontal Architecture)
+   ========================================================================== */
+.carousel-wrapper {
+    position: relative;
+    margin: 0 -4rem;
+    padding: 0 4rem;
+}
+
+.movie-carousel {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    padding: 1rem 0 2.5rem 0;
+    scroll-behavior: smooth;
+}
+
+.movie-carousel::-webkit-scrollbar {
+    display: none; /* Hidden scrollbars but active native scroll behavior */
+}
+
+.carousel-controls {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.ctrl-btn {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-glass);
+    color: var(--text-main);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.ctrl-btn:hover {
+    border-color: var(--accent-glow);
+    box-shadow: 0 0 15px rgba(var(--accent-glow-rgb), 0.2);
+    color: var(--accent-glow);
+}
+
+/* The Premium Card Structure */
+.movie-card {
+    flex: 0 0 280px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-glass);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+    position: relative;
+    cursor: pointer;
+}
+
+.movie-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: var(--border-glass-hover);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(var(--accent-glow-rgb), 0.1);
+}
+
+.card-poster-wrapper {
+    position: relative;
+    width: 100%;
+    height: 380px;
+    overflow: hidden;
+}
+
+.card-poster {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-smooth);
+}
+
+.movie-card:hover .card-poster {
+    transform: scale(1.08);
+}
+
+.card-badge {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    background: rgba(8, 11, 16, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--accent-glow);
+}
+
+.card-details {
+    padding: 1.5rem;
+    background: linear-gradient(to top, var(--bg-surface-solid), transparent);
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-meta {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   TABS SYSTEM (Curated Collection)
+   ========================================================================== */
+.collection-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+}
+
+.tab-btn {
+    background: transparent;
+    border: 1px solid var(--border-glass);
+    color: var(--text-muted);
+    padding: 0.75rem 1.75rem;
+    border-radius: 100px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: var(--transition-smooth);
+}
+
+.tab-btn:hover, .tab-btn.active {
+    background: rgba(var(--accent-glow-rgb), 0.05);
+    border-color: var(--accent-glow);
+    color: var(--accent-glow);
+    box-shadow: 0 0 20px rgba(var(--accent-glow-rgb), 0.1);
+}
+
+/* ==========================================================================
+   FEATURED MOVIE SPOTLIGHT
+   ========================================================================== */
+.spotlight-card {
+    background: linear-gradient(135deg, var(--bg-surface-solid), #0c121e);
+    border: 1px solid var(--border-glass);
+    border-radius: 32px;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+}
+
+.spotlight-info {
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.spotlight-tag {
+    color: var(--accent-glow);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.spotlight-title {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+}
+
+.spotlight-meta {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.spotlight-meta .rating {
+    color: var(--accent-glow);
+}
+
+.spotlight-meta .genre, .spotlight-meta .year {
+    color: var(--text-muted);
+}
+
+.spotlight-desc {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 3.5rem;
+}
+
+.spotlight-actions {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.spotlight-poster-wrapper {
+    position: relative;
+    height: 100%;
+    min-height: 500px;
+}
+
+.spotlight-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mask-image: linear-gradient(to right, transparent, #000 30%);
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 30%);
+}
+
+/* ==========================================================================
+   DISCOVER SECTION (Modern Premium AI Search Input)
+   ========================================================================== */
+.search-box-card {
+    background: radial-gradient(circle at top left, rgba(var(--accent-glow-rgb), 0.05), transparent), var(--bg-surface-solid);
+    border: 1px solid var(--border-glass);
+    padding: 5rem;
+    border-radius: 32px;
+    text-align: center;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+}
+
+.search-heading {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 3rem;
+}
+
+.search-bar-wrapper {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto 2.5rem auto;
+}
+
+.search-icon {
+    position: absolute;
+    left: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: var(--accent-glow);
+    text-shadow: 0 0 15px rgba(var(--accent-glow-rgb), 0.4);
+}
+
+.search-input {
+    width: 100%;
+    background: rgba(8, 11, 16, 0.6);
+    border: 1px solid var(--border-glass);
+    padding: 1.5rem 2rem 1.5rem 4.5rem;
+    border-radius: 100px;
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 1.15rem;
+    transition: var(--transition-smooth);
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--accent-glow);
+    box-shadow: 0 0 30px rgba(var(--accent-glow-rgb), 0.15);
+    background: rgba(8, 11, 16, 0.9);
+}
+
+.search-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+/* ==========================================================================
+   TOP RATED GRID (8 Item Grid Architecture)
+   ========================================================================== */
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem 2rem;
+}
+
+.movie-grid .movie-card {
+    flex: none; /* Override flex setup from carousel instances */
+    width: 100%;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.footer {
+    border-top: 1px solid var(--border-glass);
+    padding: 5rem 0 3rem 0;
+    background: #05070a;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 4rem;
+}
+
+.footer-brand p {
+    color: var(--text-muted);
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    max-width: 300px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 3rem;
+}
+
+.footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: var(--transition-smooth);
+    font-size: 0.95rem;
+}
+
+.footer-links a:hover {
+    color: var(--accent-glow);
+}
+
+.footer-links .tmdb-attr {
+    opacity: 0.6;
+    border: 1px solid var(--border-glass);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-socials a {
+    color: var(--text-muted);
+    font-size: 1.3rem;
+    transition: var(--transition-smooth);
+}
+
+.footer-socials a:hover {
+    color: var(--accent-glow);
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.02);
+    padding-top: 2rem;
+    color: rgba(255, 255, 255, 0.25);
+    font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   ANIMATIONS & RESPONSIVE DESIGN
+   ========================================================================== */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up { animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-fade-up-delayed { opacity: 0; animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards; }
+.animate-fade-up-delayed2 { opacity: 0; animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards; }
+
+.text-glow {
+    text-shadow: 0 0 10px rgba(var(--accent-glow-rgb), 0.6);
+}
+
+/* Responsive Overrides */
+@media (max-width: 1200px) {
+    .movie-grid { grid-template-columns: repeat(3, 1fr); }
+    .spotlight-card { grid-template-columns: 1fr; }
+    .spotlight-img { mask-image: linear-gradient(to bottom, transparent, #000 40%); -webkit-mask-image: linear-gradient(to bottom, transparent, #000 40%); }
+    .hero-title { font-size: 4rem; }
+}
+
+@media (max-width: 768px) {
+    .container { padding: 0 2rem; }
+    .nav-links { display: none; }
+    .movie-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero-title { font-size: 3rem; }
+    .spotlight-info { padding: 2.5rem; }
+    .search-box-card { padding: 2.5rem; }
+    .footer-content { flex-direction: column; gap: 2rem; }
+}
